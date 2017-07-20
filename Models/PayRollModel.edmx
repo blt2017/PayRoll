@@ -1,0 +1,914 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PayRoll_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Branch_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Branch_Code" Type="varchar" MaxLength="20" />
+          <Property Name="Branch_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="smallint" />
+          <Property Name="User_Id" Type="int" />
+          <Property Name="Create_by" Type="int" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_by" Type="int" />
+          <Property Name="Update_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Designation_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Designation" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="smallint" />
+          <Property Name="User_Id" Type="int" />
+          <Property Name="Create_by" Type="int" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_by" Type="int" />
+          <Property Name="Update_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Employee_Attendance_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee" Type="int" />
+          <Property Name="Month" Type="nvarchar" MaxLength="10" />
+          <Property Name="Year" Type="nvarchar" MaxLength="10" />
+          <Property Name="Total_WorkingDays" Type="numeric" Precision="4" Scale="2" />
+          <Property Name="Present_Days" Type="numeric" Precision="4" Scale="2" />
+          <Property Name="No_ofLeaves" Type="numeric" Precision="4" Scale="2" />
+          <Property Name="User_Id" Type="int" />
+          <Property Name="Create_by" Type="int" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_by" Type="int" />
+          <Property Name="Update_Date" Type="datetime" />
+          <Property Name="Salary_Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Employee_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee_Code" Type="varchar" MaxLength="20" />
+          <Property Name="First_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Last_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="DOJ" Type="datetime" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Designation" Type="int" />
+          <Property Name="Branch" Type="int" />
+          <Property Name="Present_Address1" Type="nvarchar" MaxLength="200" />
+          <Property Name="Present_Address2" Type="nvarchar" MaxLength="200" />
+          <Property Name="Present_City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Present_State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Present_Pincode" Type="nvarchar" MaxLength="15" />
+          <Property Name="Permanent_Address1" Type="nvarchar" MaxLength="200" />
+          <Property Name="Permanent_Address2" Type="nvarchar" MaxLength="200" />
+          <Property Name="Permanent_City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Permanent_State" Type="nvarchar" MaxLength="50" />
+          <Property Name="Permanent_Pincode" Type="nvarchar" MaxLength="15" />
+          <Property Name="Bank_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Account_No" Type="nvarchar" MaxLength="25" />
+          <Property Name="IFSC_Code" Type="nvarchar" MaxLength="15" />
+          <Property Name="Branch_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="smallint" />
+          <Property Name="User_Id" Type="int" />
+          <Property Name="Create_by" Type="int" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_by" Type="int" />
+          <Property Name="Update_Date" Type="datetime" />
+          <Property Name="ProfileImage" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Issue_Salary_Subtbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Issue_Salary_Id" Type="int" />
+          <Property Name="Employee" Type="int" />
+          <Property Name="Loss_of_pay" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Advance_amt" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Net_Salary" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Salary_Status" Type="int" />
+        </EntityType>
+        <EntityType Name="Issue_Salary_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Month" Type="nvarchar" MaxLength="10" />
+          <Property Name="Year" Type="nvarchar" MaxLength="10" />
+          <Property Name="User_Id" Type="int" />
+          <Property Name="Create_by" Type="int" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_by" Type="int" />
+          <Property Name="Update_Date" Type="datetime" />
+          <Property Name="Salary_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SalaryDeduction_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeductionType" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="smallint" />
+          <Property Name="Create_by" Type="int" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_by" Type="int" />
+          <Property Name="Update_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SalaryHead_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SalaryHead" Type="varchar" MaxLength="100" />
+          <Property Name="Status" Type="smallint" />
+          <Property Name="Create_by" Type="int" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_by" Type="int" />
+          <Property Name="Update_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SalarySetup_Addition_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SalarySetup" Type="int" />
+          <Property Name="SalaryHead" Type="int" />
+          <Property Name="SalaryHead_Amount" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="SalarySetup_Deduction_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SalarySetup" Type="int" />
+          <Property Name="DeductionType" Type="int" />
+          <Property Name="DeductionType_Amount" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="SalarySetup_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employee" Type="int" />
+          <Property Name="CTC_Amount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Net_Pay" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="User_Id" Type="int" />
+          <Property Name="Create_by" Type="int" />
+          <Property Name="Create_Date" Type="datetime" />
+          <Property Name="Update_by" Type="int" />
+          <Property Name="Update_Date" Type="datetime" />
+          <Property Name="Total_Deduction" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <Association Name="fk_Branch_tbl_id">
+          <End Role="Branch_tbl" Type="Self.Branch_tbl" Multiplicity="0..1" />
+          <End Role="Employee_tbl" Type="Self.Employee_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee_tbl">
+              <PropertyRef Name="Branch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_DeductionType_id">
+          <End Role="SalaryDeduction_tbl" Type="Self.SalaryDeduction_tbl" Multiplicity="0..1" />
+          <End Role="SalarySetup_Deduction_tbl" Type="Self.SalarySetup_Deduction_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryDeduction_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SalarySetup_Deduction_tbl">
+              <PropertyRef Name="DeductionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employee_Issue_Salary_id">
+          <End Role="Employee_tbl" Type="Self.Employee_tbl" Multiplicity="0..1" />
+          <End Role="Issue_Salary_Subtbl" Type="Self.Issue_Salary_Subtbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Issue_Salary_Subtbl">
+              <PropertyRef Name="Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employee_tbl_id">
+          <End Role="Designation_tbl" Type="Self.Designation_tbl" Multiplicity="0..1" />
+          <End Role="Employee_tbl" Type="Self.Employee_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designation_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee_tbl">
+              <PropertyRef Name="Designation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employee_tblid">
+          <End Role="Employee_tbl" Type="Self.Employee_tbl" Multiplicity="0..1" />
+          <End Role="Employee_Attendance_tbl" Type="Self.Employee_Attendance_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee_Attendance_tbl">
+              <PropertyRef Name="Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employeetbl_id">
+          <End Role="Employee_tbl" Type="Self.Employee_tbl" Multiplicity="0..1" />
+          <End Role="SalarySetup_tbl" Type="Self.SalarySetup_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SalarySetup_tbl">
+              <PropertyRef Name="Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Issue_Salary_id">
+          <End Role="Issue_Salary_tbl" Type="Self.Issue_Salary_tbl" Multiplicity="0..1" />
+          <End Role="Issue_Salary_Subtbl" Type="Self.Issue_Salary_Subtbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issue_Salary_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Issue_Salary_Subtbl">
+              <PropertyRef Name="Issue_Salary_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Salary_Setup_id">
+          <End Role="SalarySetup_tbl" Type="Self.SalarySetup_tbl" Multiplicity="0..1" />
+          <End Role="SalarySetup_Deduction_tbl" Type="Self.SalarySetup_Deduction_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalarySetup_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SalarySetup_Deduction_tbl">
+              <PropertyRef Name="SalarySetup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SalaryHead_id">
+          <End Role="SalaryHead_tbl" Type="Self.SalaryHead_tbl" Multiplicity="0..1" />
+          <End Role="SalarySetup_Addition_tbl" Type="Self.SalarySetup_Addition_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryHead_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SalarySetup_Addition_tbl">
+              <PropertyRef Name="SalaryHead" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SalarySetup_id">
+          <End Role="SalarySetup_tbl" Type="Self.SalarySetup_tbl" Multiplicity="0..1" />
+          <End Role="SalarySetup_Addition_tbl" Type="Self.SalarySetup_Addition_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalarySetup_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SalarySetup_Addition_tbl">
+              <PropertyRef Name="SalarySetup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PayRoll_ModelStoreContainer">
+          <EntitySet Name="Branch_tbl" EntityType="Self.Branch_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Designation_tbl" EntityType="Self.Designation_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee_Attendance_tbl" EntityType="Self.Employee_Attendance_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee_tbl" EntityType="Self.Employee_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Issue_Salary_Subtbl" EntityType="Self.Issue_Salary_Subtbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Issue_Salary_tbl" EntityType="Self.Issue_Salary_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryDeduction_tbl" EntityType="Self.SalaryDeduction_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryHead_tbl" EntityType="Self.SalaryHead_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalarySetup_Addition_tbl" EntityType="Self.SalarySetup_Addition_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalarySetup_Deduction_tbl" EntityType="Self.SalarySetup_Deduction_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalarySetup_tbl" EntityType="Self.SalarySetup_tbl" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_Branch_tbl_id" Association="Self.fk_Branch_tbl_id">
+            <End Role="Branch_tbl" EntitySet="Branch_tbl" />
+            <End Role="Employee_tbl" EntitySet="Employee_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_DeductionType_id" Association="Self.fk_DeductionType_id">
+            <End Role="SalaryDeduction_tbl" EntitySet="SalaryDeduction_tbl" />
+            <End Role="SalarySetup_Deduction_tbl" EntitySet="SalarySetup_Deduction_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employee_Issue_Salary_id" Association="Self.fk_Employee_Issue_Salary_id">
+            <End Role="Employee_tbl" EntitySet="Employee_tbl" />
+            <End Role="Issue_Salary_Subtbl" EntitySet="Issue_Salary_Subtbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employee_tbl_id" Association="Self.fk_Employee_tbl_id">
+            <End Role="Designation_tbl" EntitySet="Designation_tbl" />
+            <End Role="Employee_tbl" EntitySet="Employee_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employee_tblid" Association="Self.fk_Employee_tblid">
+            <End Role="Employee_tbl" EntitySet="Employee_tbl" />
+            <End Role="Employee_Attendance_tbl" EntitySet="Employee_Attendance_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employeetbl_id" Association="Self.fk_Employeetbl_id">
+            <End Role="Employee_tbl" EntitySet="Employee_tbl" />
+            <End Role="SalarySetup_tbl" EntitySet="SalarySetup_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Issue_Salary_id" Association="Self.fk_Issue_Salary_id">
+            <End Role="Issue_Salary_tbl" EntitySet="Issue_Salary_tbl" />
+            <End Role="Issue_Salary_Subtbl" EntitySet="Issue_Salary_Subtbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Salary_Setup_id" Association="Self.fk_Salary_Setup_id">
+            <End Role="SalarySetup_tbl" EntitySet="SalarySetup_tbl" />
+            <End Role="SalarySetup_Deduction_tbl" EntitySet="SalarySetup_Deduction_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SalaryHead_id" Association="Self.fk_SalaryHead_id">
+            <End Role="SalaryHead_tbl" EntitySet="SalaryHead_tbl" />
+            <End Role="SalarySetup_Addition_tbl" EntitySet="SalarySetup_Addition_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SalarySetup_id" Association="Self.fk_SalarySetup_id">
+            <End Role="SalarySetup_tbl" EntitySet="SalarySetup_tbl" />
+            <End Role="SalarySetup_Addition_tbl" EntitySet="SalarySetup_Addition_tbl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PayRoll_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Branch_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Branch_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Branch_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int16" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="Create_by" Type="Int32" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_by" Type="Int32" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employee_tbl" Relationship="Self.fk_Branch_tbl_id" FromRole="Branch_tbl" ToRole="Employee_tbl" />
+        </EntityType>
+        <EntityType Name="Designation_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int16" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="Create_by" Type="Int32" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_by" Type="Int32" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employee_tbl" Relationship="Self.fk_Employee_tbl_id" FromRole="Designation_tbl" ToRole="Employee_tbl" />
+        </EntityType>
+        <EntityType Name="Employee_Attendance_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee" Type="Int32" />
+          <Property Name="Month" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Total_WorkingDays" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Present_Days" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="No_ofLeaves" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="Create_by" Type="Int32" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_by" Type="Int32" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <Property Name="Salary_Status" Type="Int32" />
+          <NavigationProperty Name="Employee_tbl" Relationship="Self.fk_Employee_tblid" FromRole="Employee_Attendance_tbl" ToRole="Employee_tbl" />
+        </EntityType>
+        <EntityType Name="Employee_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="First_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="DOJ" Type="DateTime" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="Int32" />
+          <Property Name="Branch" Type="Int32" />
+          <Property Name="Present_Address1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Present_Address2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Present_City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Present_State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Present_Pincode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Permanent_Address1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Permanent_Address2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Permanent_City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Permanent_State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Permanent_Pincode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Bank_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Account_No" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="IFSC_Code" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Branch_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int16" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="Create_by" Type="Int32" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_by" Type="Int32" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <Property Name="ProfileImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Branch_tbl" Relationship="Self.fk_Branch_tbl_id" FromRole="Employee_tbl" ToRole="Branch_tbl" />
+          <NavigationProperty Name="Designation_tbl" Relationship="Self.fk_Employee_tbl_id" FromRole="Employee_tbl" ToRole="Designation_tbl" />
+          <NavigationProperty Name="Employee_Attendance_tbl" Relationship="Self.fk_Employee_tblid" FromRole="Employee_tbl" ToRole="Employee_Attendance_tbl" />
+          <NavigationProperty Name="Issue_Salary_Subtbl" Relationship="Self.fk_Employee_Issue_Salary_id" FromRole="Employee_tbl" ToRole="Issue_Salary_Subtbl" />
+          <NavigationProperty Name="SalarySetup_tbl" Relationship="Self.fk_Employeetbl_id" FromRole="Employee_tbl" ToRole="SalarySetup_tbl" />
+        </EntityType>
+        <EntityType Name="Issue_Salary_Subtbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Issue_Salary_Id" Type="Int32" />
+          <Property Name="Employee" Type="Int32" />
+          <Property Name="Loss_of_pay" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Advance_amt" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Net_Salary" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Salary_Status" Type="Int32" />
+          <NavigationProperty Name="Employee_tbl" Relationship="Self.fk_Employee_Issue_Salary_id" FromRole="Issue_Salary_Subtbl" ToRole="Employee_tbl" />
+          <NavigationProperty Name="Issue_Salary_tbl" Relationship="Self.fk_Issue_Salary_id" FromRole="Issue_Salary_Subtbl" ToRole="Issue_Salary_tbl" />
+        </EntityType>
+        <EntityType Name="Issue_Salary_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Month" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="Create_by" Type="Int32" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_by" Type="Int32" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <Property Name="Salary_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Issue_Salary_Subtbl" Relationship="Self.fk_Issue_Salary_id" FromRole="Issue_Salary_tbl" ToRole="Issue_Salary_Subtbl" />
+        </EntityType>
+        <EntityType Name="SalaryDeduction_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeductionType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int16" />
+          <Property Name="Create_by" Type="Int32" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_by" Type="Int32" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SalarySetup_Deduction_tbl" Relationship="Self.fk_DeductionType_id" FromRole="SalaryDeduction_tbl" ToRole="SalarySetup_Deduction_tbl" />
+        </EntityType>
+        <EntityType Name="SalaryHead_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalaryHead" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Int16" />
+          <Property Name="Create_by" Type="Int32" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_by" Type="Int32" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SalarySetup_Addition_tbl" Relationship="Self.fk_SalaryHead_id" FromRole="SalaryHead_tbl" ToRole="SalarySetup_Addition_tbl" />
+        </EntityType>
+        <EntityType Name="SalarySetup_Addition_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalarySetup" Type="Int32" />
+          <Property Name="SalaryHead" Type="Int32" />
+          <Property Name="SalaryHead_Amount" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="SalaryHead_tbl" Relationship="Self.fk_SalaryHead_id" FromRole="SalarySetup_Addition_tbl" ToRole="SalaryHead_tbl" />
+          <NavigationProperty Name="SalarySetup_tbl" Relationship="Self.fk_SalarySetup_id" FromRole="SalarySetup_Addition_tbl" ToRole="SalarySetup_tbl" />
+        </EntityType>
+        <EntityType Name="SalarySetup_Deduction_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SalarySetup" Type="Int32" />
+          <Property Name="DeductionType" Type="Int32" />
+          <Property Name="DeductionType_Amount" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="SalaryDeduction_tbl" Relationship="Self.fk_DeductionType_id" FromRole="SalarySetup_Deduction_tbl" ToRole="SalaryDeduction_tbl" />
+          <NavigationProperty Name="SalarySetup_tbl" Relationship="Self.fk_Salary_Setup_id" FromRole="SalarySetup_Deduction_tbl" ToRole="SalarySetup_tbl" />
+        </EntityType>
+        <EntityType Name="SalarySetup_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employee" Type="Int32" />
+          <Property Name="CTC_Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Net_Pay" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="User_Id" Type="Int32" />
+          <Property Name="Create_by" Type="Int32" />
+          <Property Name="Create_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_by" Type="Int32" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <Property Name="Total_Deduction" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Employee_tbl" Relationship="Self.fk_Employeetbl_id" FromRole="SalarySetup_tbl" ToRole="Employee_tbl" />
+          <NavigationProperty Name="SalarySetup_Addition_tbl" Relationship="Self.fk_SalarySetup_id" FromRole="SalarySetup_tbl" ToRole="SalarySetup_Addition_tbl" />
+          <NavigationProperty Name="SalarySetup_Deduction_tbl" Relationship="Self.fk_Salary_Setup_id" FromRole="SalarySetup_tbl" ToRole="SalarySetup_Deduction_tbl" />
+        </EntityType>
+        <Association Name="fk_Branch_tbl_id">
+          <End Role="Branch_tbl" Type="Self.Branch_tbl" Multiplicity="0..1" />
+          <End Role="Employee_tbl" Type="Self.Employee_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee_tbl">
+              <PropertyRef Name="Branch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employee_tbl_id">
+          <End Role="Designation_tbl" Type="Self.Designation_tbl" Multiplicity="0..1" />
+          <End Role="Employee_tbl" Type="Self.Employee_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designation_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee_tbl">
+              <PropertyRef Name="Designation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employee_tblid">
+          <End Role="Employee_tbl" Type="Self.Employee_tbl" Multiplicity="0..1" />
+          <End Role="Employee_Attendance_tbl" Type="Self.Employee_Attendance_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Employee_Attendance_tbl">
+              <PropertyRef Name="Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employee_Issue_Salary_id">
+          <End Role="Employee_tbl" Type="Self.Employee_tbl" Multiplicity="0..1" />
+          <End Role="Issue_Salary_Subtbl" Type="Self.Issue_Salary_Subtbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Issue_Salary_Subtbl">
+              <PropertyRef Name="Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Employeetbl_id">
+          <End Role="Employee_tbl" Type="Self.Employee_tbl" Multiplicity="0..1" />
+          <End Role="SalarySetup_tbl" Type="Self.SalarySetup_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SalarySetup_tbl">
+              <PropertyRef Name="Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Issue_Salary_id">
+          <End Role="Issue_Salary_tbl" Type="Self.Issue_Salary_tbl" Multiplicity="0..1" />
+          <End Role="Issue_Salary_Subtbl" Type="Self.Issue_Salary_Subtbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issue_Salary_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Issue_Salary_Subtbl">
+              <PropertyRef Name="Issue_Salary_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_DeductionType_id">
+          <End Role="SalaryDeduction_tbl" Type="Self.SalaryDeduction_tbl" Multiplicity="0..1" />
+          <End Role="SalarySetup_Deduction_tbl" Type="Self.SalarySetup_Deduction_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryDeduction_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SalarySetup_Deduction_tbl">
+              <PropertyRef Name="DeductionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SalaryHead_id">
+          <End Role="SalaryHead_tbl" Type="Self.SalaryHead_tbl" Multiplicity="0..1" />
+          <End Role="SalarySetup_Addition_tbl" Type="Self.SalarySetup_Addition_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalaryHead_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SalarySetup_Addition_tbl">
+              <PropertyRef Name="SalaryHead" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SalarySetup_id">
+          <End Role="SalarySetup_tbl" Type="Self.SalarySetup_tbl" Multiplicity="0..1" />
+          <End Role="SalarySetup_Addition_tbl" Type="Self.SalarySetup_Addition_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalarySetup_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SalarySetup_Addition_tbl">
+              <PropertyRef Name="SalarySetup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Salary_Setup_id">
+          <End Role="SalarySetup_tbl" Type="Self.SalarySetup_tbl" Multiplicity="0..1" />
+          <End Role="SalarySetup_Deduction_tbl" Type="Self.SalarySetup_Deduction_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SalarySetup_tbl">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="SalarySetup_Deduction_tbl">
+              <PropertyRef Name="SalarySetup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PayRoll_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Branch_tbl" EntityType="Self.Branch_tbl" />
+          <EntitySet Name="Designation_tbl" EntityType="Self.Designation_tbl" />
+          <EntitySet Name="Employee_Attendance_tbl" EntityType="Self.Employee_Attendance_tbl" />
+          <EntitySet Name="Employee_tbl" EntityType="Self.Employee_tbl" />
+          <EntitySet Name="Issue_Salary_Subtbl" EntityType="Self.Issue_Salary_Subtbl" />
+          <EntitySet Name="Issue_Salary_tbl" EntityType="Self.Issue_Salary_tbl" />
+          <EntitySet Name="SalaryDeduction_tbl" EntityType="Self.SalaryDeduction_tbl" />
+          <EntitySet Name="SalaryHead_tbl" EntityType="Self.SalaryHead_tbl" />
+          <EntitySet Name="SalarySetup_Addition_tbl" EntityType="Self.SalarySetup_Addition_tbl" />
+          <EntitySet Name="SalarySetup_Deduction_tbl" EntityType="Self.SalarySetup_Deduction_tbl" />
+          <EntitySet Name="SalarySetup_tbl" EntityType="Self.SalarySetup_tbl" />
+          <AssociationSet Name="fk_Branch_tbl_id" Association="Self.fk_Branch_tbl_id">
+            <End Role="Branch_tbl" EntitySet="Branch_tbl" />
+            <End Role="Employee_tbl" EntitySet="Employee_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employee_tbl_id" Association="Self.fk_Employee_tbl_id">
+            <End Role="Designation_tbl" EntitySet="Designation_tbl" />
+            <End Role="Employee_tbl" EntitySet="Employee_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employee_tblid" Association="Self.fk_Employee_tblid">
+            <End Role="Employee_tbl" EntitySet="Employee_tbl" />
+            <End Role="Employee_Attendance_tbl" EntitySet="Employee_Attendance_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employee_Issue_Salary_id" Association="Self.fk_Employee_Issue_Salary_id">
+            <End Role="Employee_tbl" EntitySet="Employee_tbl" />
+            <End Role="Issue_Salary_Subtbl" EntitySet="Issue_Salary_Subtbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Employeetbl_id" Association="Self.fk_Employeetbl_id">
+            <End Role="Employee_tbl" EntitySet="Employee_tbl" />
+            <End Role="SalarySetup_tbl" EntitySet="SalarySetup_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Issue_Salary_id" Association="Self.fk_Issue_Salary_id">
+            <End Role="Issue_Salary_tbl" EntitySet="Issue_Salary_tbl" />
+            <End Role="Issue_Salary_Subtbl" EntitySet="Issue_Salary_Subtbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_DeductionType_id" Association="Self.fk_DeductionType_id">
+            <End Role="SalaryDeduction_tbl" EntitySet="SalaryDeduction_tbl" />
+            <End Role="SalarySetup_Deduction_tbl" EntitySet="SalarySetup_Deduction_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SalaryHead_id" Association="Self.fk_SalaryHead_id">
+            <End Role="SalaryHead_tbl" EntitySet="SalaryHead_tbl" />
+            <End Role="SalarySetup_Addition_tbl" EntitySet="SalarySetup_Addition_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SalarySetup_id" Association="Self.fk_SalarySetup_id">
+            <End Role="SalarySetup_tbl" EntitySet="SalarySetup_tbl" />
+            <End Role="SalarySetup_Addition_tbl" EntitySet="SalarySetup_Addition_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Salary_Setup_id" Association="Self.fk_Salary_Setup_id">
+            <End Role="SalarySetup_tbl" EntitySet="SalarySetup_tbl" />
+            <End Role="SalarySetup_Deduction_tbl" EntitySet="SalarySetup_Deduction_tbl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PayRoll_ModelStoreContainer" CdmEntityContainer="PayRoll_Entities">
+          <EntitySetMapping Name="Branch_tbl">
+            <EntityTypeMapping TypeName="PayRoll_Model.Branch_tbl">
+              <MappingFragment StoreEntitySet="Branch_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Branch_Code" ColumnName="Branch_Code" />
+                <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Designation_tbl">
+            <EntityTypeMapping TypeName="PayRoll_Model.Designation_tbl">
+              <MappingFragment StoreEntitySet="Designation_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee_Attendance_tbl">
+            <EntityTypeMapping TypeName="PayRoll_Model.Employee_Attendance_tbl">
+              <MappingFragment StoreEntitySet="Employee_Attendance_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Total_WorkingDays" ColumnName="Total_WorkingDays" />
+                <ScalarProperty Name="Present_Days" ColumnName="Present_Days" />
+                <ScalarProperty Name="No_ofLeaves" ColumnName="No_ofLeaves" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Salary_Status" ColumnName="Salary_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee_tbl">
+            <EntityTypeMapping TypeName="PayRoll_Model.Employee_tbl">
+              <MappingFragment StoreEntitySet="Employee_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Employee_Code" ColumnName="Employee_Code" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Present_Address1" ColumnName="Present_Address1" />
+                <ScalarProperty Name="Present_Address2" ColumnName="Present_Address2" />
+                <ScalarProperty Name="Present_City" ColumnName="Present_City" />
+                <ScalarProperty Name="Present_State" ColumnName="Present_State" />
+                <ScalarProperty Name="Present_Pincode" ColumnName="Present_Pincode" />
+                <ScalarProperty Name="Permanent_Address1" ColumnName="Permanent_Address1" />
+                <ScalarProperty Name="Permanent_Address2" ColumnName="Permanent_Address2" />
+                <ScalarProperty Name="Permanent_City" ColumnName="Permanent_City" />
+                <ScalarProperty Name="Permanent_State" ColumnName="Permanent_State" />
+                <ScalarProperty Name="Permanent_Pincode" ColumnName="Permanent_Pincode" />
+                <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+                <ScalarProperty Name="Account_No" ColumnName="Account_No" />
+                <ScalarProperty Name="IFSC_Code" ColumnName="IFSC_Code" />
+                <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="ProfileImage" ColumnName="ProfileImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Issue_Salary_Subtbl">
+            <EntityTypeMapping TypeName="PayRoll_Model.Issue_Salary_Subtbl">
+              <MappingFragment StoreEntitySet="Issue_Salary_Subtbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Issue_Salary_Id" ColumnName="Issue_Salary_Id" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Loss_of_pay" ColumnName="Loss_of_pay" />
+                <ScalarProperty Name="Advance_amt" ColumnName="Advance_amt" />
+                <ScalarProperty Name="Net_Salary" ColumnName="Net_Salary" />
+                <ScalarProperty Name="Salary_Status" ColumnName="Salary_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Issue_Salary_tbl">
+            <EntityTypeMapping TypeName="PayRoll_Model.Issue_Salary_tbl">
+              <MappingFragment StoreEntitySet="Issue_Salary_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Salary_Date" ColumnName="Salary_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryDeduction_tbl">
+            <EntityTypeMapping TypeName="PayRoll_Model.SalaryDeduction_tbl">
+              <MappingFragment StoreEntitySet="SalaryDeduction_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DeductionType" ColumnName="DeductionType" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryHead_tbl">
+            <EntityTypeMapping TypeName="PayRoll_Model.SalaryHead_tbl">
+              <MappingFragment StoreEntitySet="SalaryHead_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="SalaryHead" ColumnName="SalaryHead" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalarySetup_Addition_tbl">
+            <EntityTypeMapping TypeName="PayRoll_Model.SalarySetup_Addition_tbl">
+              <MappingFragment StoreEntitySet="SalarySetup_Addition_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="SalarySetup" ColumnName="SalarySetup" />
+                <ScalarProperty Name="SalaryHead" ColumnName="SalaryHead" />
+                <ScalarProperty Name="SalaryHead_Amount" ColumnName="SalaryHead_Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalarySetup_Deduction_tbl">
+            <EntityTypeMapping TypeName="PayRoll_Model.SalarySetup_Deduction_tbl">
+              <MappingFragment StoreEntitySet="SalarySetup_Deduction_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="SalarySetup" ColumnName="SalarySetup" />
+                <ScalarProperty Name="DeductionType" ColumnName="DeductionType" />
+                <ScalarProperty Name="DeductionType_Amount" ColumnName="DeductionType_Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalarySetup_tbl">
+            <EntityTypeMapping TypeName="PayRoll_Model.SalarySetup_tbl">
+              <MappingFragment StoreEntitySet="SalarySetup_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="CTC_Amount" ColumnName="CTC_Amount" />
+                <ScalarProperty Name="Net_Pay" ColumnName="Net_Pay" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+                <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+                <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Total_Deduction" ColumnName="Total_Deduction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

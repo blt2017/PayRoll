@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PayRoll_ModelStoreContainer" CdmEntityContainer="PayRoll_Entities">
+    <EntitySetMapping Name="Branch_tbl">
+      <EntityTypeMapping TypeName="PayRoll_Model.Branch_tbl">
+        <MappingFragment StoreEntitySet="Branch_tbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Branch_Code" ColumnName="Branch_Code" />
+          <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Designation_tbl">
+      <EntityTypeMapping TypeName="PayRoll_Model.Designation_tbl">
+        <MappingFragment StoreEntitySet="Designation_tbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Attendance_tbl">
+      <EntityTypeMapping TypeName="PayRoll_Model.Employee_Attendance_tbl">
+        <MappingFragment StoreEntitySet="Employee_Attendance_tbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Total_WorkingDays" ColumnName="Total_WorkingDays" />
+          <ScalarProperty Name="Present_Days" ColumnName="Present_Days" />
+          <ScalarProperty Name="No_ofLeaves" ColumnName="No_ofLeaves" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Salary_Status" ColumnName="Salary_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_tbl">
+      <EntityTypeMapping TypeName="PayRoll_Model.Employee_tbl">
+        <MappingFragment StoreEntitySet="Employee_tbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Employee_Code" ColumnName="Employee_Code" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="Present_Address1" ColumnName="Present_Address1" />
+          <ScalarProperty Name="Present_Address2" ColumnName="Present_Address2" />
+          <ScalarProperty Name="Present_City" ColumnName="Present_City" />
+          <ScalarProperty Name="Present_State" ColumnName="Present_State" />
+          <ScalarProperty Name="Present_Pincode" ColumnName="Present_Pincode" />
+          <ScalarProperty Name="Permanent_Address1" ColumnName="Permanent_Address1" />
+          <ScalarProperty Name="Permanent_Address2" ColumnName="Permanent_Address2" />
+          <ScalarProperty Name="Permanent_City" ColumnName="Permanent_City" />
+          <ScalarProperty Name="Permanent_State" ColumnName="Permanent_State" />
+          <ScalarProperty Name="Permanent_Pincode" ColumnName="Permanent_Pincode" />
+          <ScalarProperty Name="Bank_Name" ColumnName="Bank_Name" />
+          <ScalarProperty Name="Account_No" ColumnName="Account_No" />
+          <ScalarProperty Name="IFSC_Code" ColumnName="IFSC_Code" />
+          <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="ProfileImage" ColumnName="ProfileImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Issue_Salary_Subtbl">
+      <EntityTypeMapping TypeName="PayRoll_Model.Issue_Salary_Subtbl">
+        <MappingFragment StoreEntitySet="Issue_Salary_Subtbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Issue_Salary_Id" ColumnName="Issue_Salary_Id" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="Loss_of_pay" ColumnName="Loss_of_pay" />
+          <ScalarProperty Name="Advance_amt" ColumnName="Advance_amt" />
+          <ScalarProperty Name="Net_Salary" ColumnName="Net_Salary" />
+          <ScalarProperty Name="Salary_Status" ColumnName="Salary_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Issue_Salary_tbl">
+      <EntityTypeMapping TypeName="PayRoll_Model.Issue_Salary_tbl">
+        <MappingFragment StoreEntitySet="Issue_Salary_tbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Salary_Date" ColumnName="Salary_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalaryDeduction_tbl">
+      <EntityTypeMapping TypeName="PayRoll_Model.SalaryDeduction_tbl">
+        <MappingFragment StoreEntitySet="SalaryDeduction_tbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DeductionType" ColumnName="DeductionType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalaryHead_tbl">
+      <EntityTypeMapping TypeName="PayRoll_Model.SalaryHead_tbl">
+        <MappingFragment StoreEntitySet="SalaryHead_tbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SalaryHead" ColumnName="SalaryHead" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalarySetup_Addition_tbl">
+      <EntityTypeMapping TypeName="PayRoll_Model.SalarySetup_Addition_tbl">
+        <MappingFragment StoreEntitySet="SalarySetup_Addition_tbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SalarySetup" ColumnName="SalarySetup" />
+          <ScalarProperty Name="SalaryHead" ColumnName="SalaryHead" />
+          <ScalarProperty Name="SalaryHead_Amount" ColumnName="SalaryHead_Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalarySetup_Deduction_tbl">
+      <EntityTypeMapping TypeName="PayRoll_Model.SalarySetup_Deduction_tbl">
+        <MappingFragment StoreEntitySet="SalarySetup_Deduction_tbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SalarySetup" ColumnName="SalarySetup" />
+          <ScalarProperty Name="DeductionType" ColumnName="DeductionType" />
+          <ScalarProperty Name="DeductionType_Amount" ColumnName="DeductionType_Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalarySetup_tbl">
+      <EntityTypeMapping TypeName="PayRoll_Model.SalarySetup_tbl">
+        <MappingFragment StoreEntitySet="SalarySetup_tbl">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Employee" ColumnName="Employee" />
+          <ScalarProperty Name="CTC_Amount" ColumnName="CTC_Amount" />
+          <ScalarProperty Name="Net_Pay" ColumnName="Net_Pay" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Create_by" ColumnName="Create_by" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create_Date" />
+          <ScalarProperty Name="Update_by" ColumnName="Update_by" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+          <ScalarProperty Name="Total_Deduction" ColumnName="Total_Deduction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

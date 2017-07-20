@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="27e7db7c0add411e95118f42d413dbec" Name="Diagram1">
+        <EntityTypeShape EntityType="PayRoll_Model.Branch_tbl" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayRoll_Model.Designation_tbl" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayRoll_Model.Employee_Attendance_tbl" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayRoll_Model.Employee_tbl" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayRoll_Model.Issue_Salary_Subtbl" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayRoll_Model.Issue_Salary_tbl" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayRoll_Model.SalaryDeduction_tbl" Width="1.5" PointX="5.25" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayRoll_Model.SalaryHead_tbl" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayRoll_Model.SalarySetup_Addition_tbl" Width="1.5" PointX="7.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayRoll_Model.SalarySetup_Deduction_tbl" Width="1.5" PointX="7.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PayRoll_Model.SalarySetup_tbl" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <AssociationConnector Association="PayRoll_Model.fk_Branch_tbl_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PayRoll_Model.fk_Employee_tbl_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PayRoll_Model.fk_Employee_tblid" ManuallyRouted="false" />
+        <AssociationConnector Association="PayRoll_Model.fk_Employee_Issue_Salary_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PayRoll_Model.fk_Employeetbl_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PayRoll_Model.fk_Issue_Salary_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PayRoll_Model.fk_DeductionType_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PayRoll_Model.fk_SalaryHead_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PayRoll_Model.fk_SalarySetup_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PayRoll_Model.fk_Salary_Setup_id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

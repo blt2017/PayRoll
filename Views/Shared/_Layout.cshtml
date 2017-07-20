@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/plugins/images/favicon.png">
+    <title>PayRoll - JETZ</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="~/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!--alerts CSS -->
+    <link href="~/plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" />
+
+    <link href="~/plugins/bower_components/jquery-wizard-master/css/wizard.css" rel="stylesheet">
+    <link href="~/plugins/bower_components/tablesaw-master/dist/tablesaw.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.css">
+    <link href="~/plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <link href="~/plugins/bower_components/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <link href="~/css/colors/Step.css" rel="stylesheet" />
+    <!-- animation CSS -->
+    <link href="~/css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/css/style.css" rel="stylesheet">
+    <!--Gallery-->
+    <link href="~/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet" />
+    <link href="~/css/Compliance.css" rel="stylesheet" />
+    <!-- color CSS you can use different color css from css/colors folder -->
+    <link href="~/css/colors/default-dark.css" id="theme" rel="stylesheet">
+    <!--My carousel Custom CSS -->
+    <link href="~/plugins/bower_components/owl.carousel/owl.carousel.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/plugins/bower_components/owl.carousel/owl.theme.default.css" rel="stylesheet" type="text/css" />
+    <!--Multi select dropdown CSS -->
+    <link href="~/bootstrap/dist/css/bootstrap-multiselect.css" rel="stylesheet" />
+    <!-- Date Picker Plugin CSS-->
+    <link href="~/plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- jQuery -->
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/js/jquery.cookie.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Menu Plugin JavaScript -->
+    <script src="~/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="~/js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="~/js/waves.js"></script>
+
+    <!-- Toastr -->
+    <script src="~/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+    <script src="~/js/toastr.js"></script>
+    <!-- wizard -->
+    <script src="~/plugins/bower_components/jquery-wizard-master/dist/jquery-wizard.min.js"></script>
+
+    <!-- Table responsive -->
+    <script id="js_table" src="~/plugins/bower_components/tablesaw-master/dist/tablesaw.js"></script>
+    <script id="js_table_init" src="~/plugins/bower_components/tablesaw-master/dist/tablesaw-init.js"></script>
+
+
+    <!-- jQuery peity -->
+    <script src="~/js/jasny-bootstrap.js"></script>
+
+    <!-- FormValidation -->
+    <script src="~/plugins/bower_components/jquery-wizard-master/libs/formvalidation/formValidation.min.js"></script>
+    <!-- FormValidation plugin and the class supports validating Bootstrap form -->
+    <script src="~/plugins/bower_components/jquery-wizard-master/libs/formvalidation/bootstrap.min.js"></script>
+    <!-- Date Picker Plugin JavaScript -->
+    <script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- Tab panel -->
+    <script src="~/js/cbpFWTabs.js"></script>
+    <script src="~/plugins/bower_components/switchery/dist/switchery.min.js"></script>
+    <script src="~/plugins/bower_components/blockUI/jquery.blockUI.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <!--Gallery-->
+    <script type="text/javascript" src="~/plugins/bower_components/gallery/js/animated-masonry-gallery.js"></script>
+    <script type="text/javascript" src="~/plugins/bower_components/gallery/js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="~/plugins/bower_components/fancybox/ekko-lightbox.min.js"></script>
+    <!-- Magnific popup JavaScript -->
+    <script src="../plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+    <script src="../plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>
+    <!-- jQuery for carousel -->
+    <script src="~/plugins/bower_components/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/plugins/bower_components/owl.carousel/owl.custom.js"></script>
+    <!-- jQuery for multiselect -->
+    <script src="~/bootstrap/dist/js/bootstrap-multiselect.js"></script>
+    <script src="~/js/mask.js"></script>
+
+    <!-- Angular Js -->
+    <script type="text/javascript" src="~/Scripts/angular.js"></script>
+    <script type="text/javascript" src="~/Scripts/angular-route.js"></script>
+    <script type="text/javascript" src="~/AngularJs/Module.js"></script>
+    <script type="text/javascript" src="~/AngularJs/Services.js"></script>
+    <script type="text/javascript" src="~/AngularJs/Controller.js"></script>
+</head>
+<body class="fix-sidebar fix-header block5" ng-app="PayRoll">
+    <a class="btn btn-default btn-outline m-b-20 m-r-20 hide" id="blockbtn5"></a>
+    <a class="btn btn-default btn-outline m-b-20 hide" id="unblockbtn5"></a>
+    <div id="wrapper">
+        <!-- Top Navigation -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
+                <div class="top-left-part">
+                    <a class="logo" href="http://www.medcom.net" target="_blank">
+                        <b>
+                            <img src="../plugins/images/logo.png" height="40" alt="home" />
+                        </b>
+                        <span class="text-dark text-center">
+                            @*<img src="../plugins/images/logo.png" width="150" height="40" alt="home" />*@
+                            <b>JETZ </b> 
+                        </span>
+                    </a>
+                </div>
+
+                <ul class="nav navbar-top-links navbar-left hidden-xs">
+                    <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    @*@if (Session["unread_mail"] != null)
+                    {
+                        List<Compliance.Models.inbox> Mail_List = (List<Compliance.Models.inbox>)Session["unread_mail"];
+                        if (@Mail_List.Count() > 0)
+                        {
+                            <li class="dropdown">
+                                <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#">
+                                    <i class="icon-envelope"></i>
+                                    <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+                                </a>
+                                <ul class="dropdown-menu mailbox animated bounceInDown">
+                                    <li>
+                                        <div class="drop-title">You have @Mail_List.Count().ToString() new messages</div>
+                                    </li>
+
+                                    <li>
+                                        <div class="message-center">
+                                            <div id="scrl_detail">
+                                                @for (int i = 0; i < Mail_List.Count(); i++)
+                                                {
+                                                    <a href="@Url.Action("Inbox_Detail", "Site", new { @Mail_ID = @Mail_List[i].Mail_ID })">
+                                                        <div class="user-img"> <img src="../plugins/images/users/user_message.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                                        <div class="mail-contnet">
+                                                            <span class="font-normal">@Mail_List[i].Sender_Name</span>
+                                                            <div class="mail-desc font-12">@Mail_List[i].Body2</div> <span class="time">@Mail_List[i].Send_On</span>
+                                                        </div>
+                                                    </a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li> <a class="text-center" href="@Url.Action("Inbox", "Site" )"> <strong class="font-normal font-12">See all notifications</strong> <i class="fa fa-angle-right"></i> </a></li>
+                                </ul>
+                                <!-- /.dropdown-messages -->
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="dropdown">
+                                <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#">
+                                    <i class="icon-envelope"></i>
+                                    <div class="notify"><span class=""></span><span class="point"></span></div>
+                                </a>
+                                <ul class="dropdown-menu mailbox animated bounceInDown">
+                                    <li><div class="drop-title">You have no new messages</div></li>
+                                    <li> <a class="text-center" href="@Url.Action("Inbox", "Site" )"> <strong class="font-normal font-12">See all notifications</strong> <i class="fa fa-angle-right"></i> </a></li>
+                                </ul>
+                                <!-- /.dropdown-messages -->
+                            </li>
+                        }
+                    }*@
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#">
+                            <i class="icon-envelope"></i>
+                            <div class="notify"><span class=""></span><span class="point"></span></div>
+                        </a>
+                        <ul class="dropdown-menu mailbox animated bounceInDown">
+                            <li><div class="drop-title">You have no new messages</div></li>
+                            <li> <a class="text-center" href="@Url.Action("Inbox", "Site" )"> <strong class="font-normal font-12">See all notifications</strong> <i class="fa fa-angle-right"></i> </a></li>
+                        </ul>
+                        <!-- /.dropdown-messages -->
+                    </li>
+
+                    <!-- /.dropdown -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
+                            <img src="../plugins/images/users/user_profile.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">
+                                @*@if (Session["Name"].ToString() != "")
+                                {
+                                    @Session["Name"].ToString().ToUpper()
+                                }
+                                else
+                                {*@
+                                    <span>User</span>
+                                @*}*@
+
+                            </b> <i class="icon-options-vertical"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user animated flipInY">
+                            <li><a href="@Url.Action("Inbox", "Site" )"><i class="ti-email"></i> Inbox</a></li>
+                            <li role="separator" class="divider"></li>
+                            @*<li><a href="/Login/ChangePassword?Id=@Session["ID"].ToString()&type=@Session["User_Type"].ToString()"><i class="ti-settings"></i> Account Setting</a></li>*@
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action("logout", "Login" )"><i class="fa fa-power-off"></i> Logout</a></li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+                </ul>
+
+
+
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- End Top Navigation -->
+        <!-- Left navbar-header -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search hidden-sm hidden-md hidden-lg">
+                        <!-- input-group -->
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </li>
+                    <li>
+                        <a href="~/Master/Index" class="waves-effect"><i class="fa fa-home"></i> <span class="hide-menu"> Branch </span></a>
+                    </li>
+					<li>
+						<a href="~/Master/Employees_List" class="waves-effect"><i class="fa fa-home"></i> <span class="hide-menu"> Employees </span></a>
+					</li>
+                    <li>
+                        <a href="#" class="waves-effect"><i class="fa fa-home"></i> <span class="hide-menu"> Master <span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="~/Master/Index">Branch</a></li>
+                            <li><a href="~/Master/Designation">Designation</a></li>
+                            <li><a href="~/Master/SalaryHead">Salary Head</a></li>
+                            <li><a href="~/Master/SalaryDeduction">Salary Deduction</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- Left navbar-header end -->
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    @RenderBody()
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+            <footer class="footer text-center">
+                Copyright © 2017. All rights reserved.
+                <span class="right"> Design and Developed by <a class="" href="http://bluelinestechnology.com" target="_blank">BLUE LINES TECHNOLOGY</a></span>
+            </footer>
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- Custom Theme JavaScript -->
+    <script src="~/js/custom.min.js"></script>
+    <!--Style Switcher -->
+    <script src="~/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+    <!-- Sweet-Alert  -->
+    <script src="~/plugins/bower_components/sweetalert/sweetalert.min.js"></script>
+    <script src="~/plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
+
+    <script>
+        $('#scrl_detail').slimScroll({
+            color: '#333',
+            size: '5px',
+            height: '25em'
+        });
+    </script>
+</body>
+</html>

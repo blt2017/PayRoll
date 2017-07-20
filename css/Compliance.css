@@ -1,0 +1,204 @@
+﻿    .tree li {  
+    margin: 0px 0;    
+    list-style-type: none;  
+    position: relative;  
+    padding: 20px 5px 0px 5px;  
+    /*color:#00c292;*/
+}  
+  
+.tree li::before{  
+    content: '';  
+    position: absolute;   
+    top: 0;  
+    width: 1px;   
+    height: 100%;  
+    right: auto;   
+    left: -20px;  
+    border-left: 1px solid #ccc;  
+    bottom: 50px;  
+}  
+.tree li::after{  
+    content: '';  
+    position: absolute;   
+    top: 30px;   
+    width: 25px;   
+    height: 20px;  
+    right: auto;   
+    left: -20px;  
+    border-top: 1px solid #ccc;  
+}  
+.tree li a{  
+    display: inline-block;  
+    border: 1px solid #ccc;  
+    padding: 5px 10px;  
+    text-decoration: none;  
+    color: #666;      
+    font-family: 'Open Sans',sans-serif;  
+    font-size: 14px;  
+    font-weight :600;  
+    border-radius: 5px;  
+    -webkit-border-radius: 5px;  
+    -moz-border-radius: 5px;  
+    width:100%;
+}  
+  
+/*Remove connectors before root*/  
+.tree > ul > li::before, .tree > ul > li::after{  
+    border: 0;  
+}  
+/*Remove connectors after last child*/  
+.tree li:last-child::before{   
+      height: 30px;  
+}  
+  
+/*Time for some hover effects*/  
+/*We will apply the hover effect the the lineage of the element also*/  
+/*.tree li a:hover, .tree li a:hover+ul li a {  
+    background: #dd4814; color: #ffffff; border: 1px solid #dd4814;  
+}*/  
+/*Connector styles on hover*/  
+.tree li a:hover+ul li::after,   
+.tree li a:hover+ul li::before,   
+.tree li a:hover+ul::before,   
+.tree li a:hover+ul ul::before{  
+    border-color:  #dd4814;  
+}  
+.tree-checkbox{  
+    margin :4px !important;  
+}  
+  
+   
+.tree:before {  
+    border-left:  1px solid #ccc;  
+    bottom: 0px;  
+    content: "";  
+    display: block;  
+    left: 5px;  
+    position: absolute;  
+    top: 10px;  
+    width: 1px;  
+    z-index: 1;  
+}  
+  
+.tree ul:after {  
+    border-top: 1px solid #ccc;  
+    content: "";  
+    height: 20px;  
+    left: -33px;  
+    position: absolute;  
+    right: auto;  
+    top: 40px;  
+    width: 40px;  
+}  
+*:before, *:after {  
+    box-sizing: border-box;  
+}  
+*:before, *:after {  
+    box-sizing: border-box;  
+}
+.tree {
+	padding-left: 0px;
+	position: relative;
+	margin-left: 35px;
+}  
+.tree .expand{
+   padding: 9px 8px 8px 12px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+
+}
+
+
+/*button response*/
+@media screen and (max-width: 35em){
+.btn-icon button span {
+    display: none;
+}
+}
+.actions{
+padding-left:20px;
+min-width:90px;
+}
+
+/*loader*/
+ .loader {
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #03a9f3;
+        border-bottom: 8px solid #03a9f3;
+        width: 40px;
+        height: 40px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        display: none;
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /*prevent auto complete textbox color change*/
+   input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+   .r-icon-stats i {
+    width: 50px;
+    height: 50px;
+    padding: 16px;
+    text-align: center;
+    /*color: #000;*/
+    font-size: 18px;
+    display: inline-block;
+    border-radius: 100%;
+    vertical-align: top;
+}
+.r-icon-stats .bodystate {
+    padding-left: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+table {width:100%;}
+thead {display: none;}
+th{display: none;}
+tr:nth-of-type(2n) {background-color: inherit;}
+tr td:first-child {font-weight:400;font-size:14px;color:#fb9678;text-align:left;}
+tbody td {display:block ;  text-align:left;}
+tbody td:before { 
+    content: attr(data-th); 
+    float: left;
+    text-align:left;  
+    min-width:80px;
+    color:#03a9f3;
+  }
+}
+
+.sort {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    vertical-align: middle;
+}

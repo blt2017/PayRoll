@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+@{
+    ViewBag.Title = "Index";
+    @*@Layout = null;*@
+}
+<html>
+<head>
+    @*<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/angular.js"></script>
+    <script type="text/javascript" src="~/Scripts/angular-route.js"></script>
+    <script type="text/javascript" src="~/AngularJs/Module.js"></script>
+    <script type="text/javascript" src="~/AngularJs/Services.js"></script>
+    <script type="text/javascript" src="~/AngularJs/Controller.js"></script>*@
+</head>
+<body ng-app="PayRoll">
+    <div class="row" ng-controller="branchController">
+        <h4>Branch Details.</h4>
+        <hr />
+        <div class="col-md-4">
+            <div class="form-group">
+                Branch Code :
+                <div class="col-md-12">
+                    <input type="hidden" value="0" ng-model="branch.id" />
+                    <input type="text" class="form-control" ng-model="branch.Branch_Code" />
+                </div>
+            </div>
+            <div class="form-group">
+                Branch Name :
+                <div class="col-md-12">
+                    <input type="text" class="form-control" ng-model="branch.Branch_Name" />
+                </div>
+            </div>
+            <div class="form-group">
+                Status :
+                <div class="col-md-12">
+                    <select ng-init="branch.Status=Status[0].Value" class="form-control"  ng-model="branch.Status">
+                        <option selected="selected" ng-repeat="x in Status" value="{{x.Value}}">{{x.Text}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="text-success" ng-show="success">
+                {{msg}}
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" ng-model="btn_save" ng-click="branchAction()" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="pull-left">
+                Search : <input type="text" ng-keyup="getBranch('First')" ng-model="txtsearch" />
+            </div>
+            <div class="pull-right">
+                <select ng-change="getBranch('First')" ng-model="drpCount">
+                    <option selected="selected" ng-repeat="x in options" value="{{x.id}}">{{x.count}}</option>
+                </select>
+            </div>
+            <table cellpadding="12" class="table table-bordered table-hover">
+                <tr>
+                    <td class="hidden"><b>Sl No</b></td>
+                    <td><b>Brach Code</b></td>
+                    <td><b>Branch Name</b></td>
+                    <td><b>Status</b></td>
+                    <td><b>Action</b></td>
+                </tr>
+                <tr ng-repeat="branch in branchDet">
+                    <td class="hidden">
+                        {{branch.id}}
+                    </td>
+                    <td>
+                        {{branch.Branch_Code}}
+                    </td>
+                    <td>
+                        {{branch.Branch_Name}}
+                    </td>
+                    <td>
+                        {{branch.Status}}
+                    </td>
+                    <td>
+                        <span ng-click="editBranch(branch)" class="btn-link">Edit</span>
+                        <span ng-click="deleteItem(branch)" ng-confirm-click="Are you sure delete this Item?" class="btn-link">Delete</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="col-md-4 col-md-offset-8 text-center">
+                <div class="btn-group p-10">
+                    <input type="hidden" ng-model="tot_count" />
+                    <input type="hidden" ng-model="Row_count" />
+                    <input type="hidden" ng-model="Start_Num" />
+                    <input type="hidden" ng-model="End_Num" />
+                    <input type="hidden" ng-model="LastPage" />
+                    <button type="button" ng-model="First" ng-click="getBranch('First')" class="btn btn-default btn-outline waves-effect"><<</button>
+                    <button type="button" ng-model="Previous" ng-click="getBranch('Previous')" class="btn btn-default btn-outline waves-effect"><</button>
+                    <button type="button" class="btn btn-default btn-outline waves-effect"><span class="font-bold" id="current_page">{{pageno}}</span></button>
+                    <button type="button" ng-model="Next" ng-click="getBranch('Next')" class="btn btn-default btn-outline waves-effect">></button>
+                    <button type="button" ng-model="Last" ng-click="getBranch('Last')" class="btn btn-default btn-outline waves-effect">>></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <a href="/Home/Bill">Bill</a>
+        </div>
+    </div>
+</body>
+</html>
+
+

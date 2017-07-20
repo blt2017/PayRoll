@@ -1,0 +1,310 @@
+﻿@model PayRoll.Models.Employee_tbl
+@{
+	ViewBag.Title = "Employees_Action";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+	ViewBag.Title = "Employee_Action";
+	List<SelectListItem> Status = new List<SelectListItem>();
+	Status.Add(new SelectListItem { Text = "Active", Value = "1" });
+	Status.Add(new SelectListItem { Text = "In Active", Value = "2" });
+
+	List<SelectListItem> Gender = new List<SelectListItem>();
+	Gender.Add(new SelectListItem { Text = "Male", Value = "1" });
+	Gender.Add(new SelectListItem { Text = "Female", Value = "2" });
+}
+
+<h2>Employees_Action</h2>
+<div class="row" ng-controller="employeeController">
+	<div class="col-sm-12">
+		<div class="white-box">
+			<ul class="nav customtab2 nav-tabs" role="tablist">
+				<li role="presentation" class="active" style="width:33%;text-align:center;"><a href="#Employee" id="tab_Employer" @*style="pointer-events:none;"*@ aria-controls="Employee" role="tab" data-toggle="tab" aria-expanded="true"><span class="visible-xs"><i class="fa fa-users"></i></span><span class="hidden-xs font-bold"> Employer Information</span></a></li>
+				<li role="presentation" class="" style="width:33%;text-align:center;"><a href="#personal" id="tab_billing" @*style="pointer-events:none;"*@ aria-controls="personal" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="ti-user"></i></span> <span class="hidden-xs font-bold">Contact Information</span></a></li>
+				<li role="presentation" class="" style="width:33%;text-align:center;"><a href="#Account" id="tab_login" @*style="pointer-events:none;"*@ aria-controls="Account" role="tab" data-toggle="tab" aria-expanded="false"><span class="visible-xs"><i class="fa fa-lock"></i></span> <span class="hidden-xs font-bold">Account Information</span></a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade active in" id="Employee">
+
+					<div class="form-body">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Branch Name </label>
+									@Html.HiddenFor(model => model.id, new { id = "Id", data_ng_model = "employee.id" })
+									<select ng-init="employee.Branch=''" class = "form-control" ng-model="employee.Branch">
+										<option value="">Select Branch</option>
+										<option ng-repeat="Branch in Branchs" value="{{Branch.Value}}">{{Branch.Text}}</option>
+									</select>
+									<span id="b_name" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Employee Code </label>
+									@Html.EditorFor(model => model.Employee_Code, new { htmlAttributes = new { @onkeyup = "valEvent(this.id,'b_name')", @class = "form-control", data_ng_model = "employee.Employee_Code", id = "txt_Employee_Code" } })
+									<span id="b_name" class="text-danger"></span>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">First Name</label>
+									@Html.EditorFor(model => model.First_Name, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.First_Name", id = "txt_firstname" } })
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Last Name</label>
+									@Html.EditorFor(model => model.Last_Name, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Last_Name", id = "txt_lastname" } })
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Email</label>
+										@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Email", id = "txt_email" } })
+									</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Mobile</label>
+										@Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Mobile", id = "txt_mobile" } })
+									</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">DOB</label>
+										@Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.DOB", id = "txt_dob" } })
+									</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">DOJ</label>
+									@Html.EditorFor(model => model.DOJ, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.DOJ", id = "txt_doj" } })
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Designation</label>
+									<select ng-init="employee.Designation=''" class = "form-control" ng-model="employee.Designation">
+										<option  value="">Select Designation</option>
+										<option ng-repeat="desination in desinations" value="{{desination.Value}}">{{desination.Text}}</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Gender</label>
+									<select ng-init="employee.Gender=''" class="form-control" ng-model="employee.Gender">
+										<option value="">Select Gender</option>
+										<option ng-repeat="Gender in Genders" value="{{Gender.Value}}">{{Gender.Text}}</option>
+									</select>
+									@*@Html.DropDownListFor(model => model.Gender,Gender, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Gender", id = "drp_Gender" } })*@
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+									<div class="form-group">
+										<label class="control-label">Photo</label>
+										<div class="fileinput input-group fileinput-new" data-provides="fileinput">
+											<div class="form-control" data-trigger="fileinput"> <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+											<span class="input-group-addon btn btn-info text-white btn-file">
+												<span class="fileinput-new">Select file</span> <span class="fileinput-exists">Change</span>
+												<input type="hidden" value="" name="...">
+												<input type="file" name="file" upload-file="file" mod id="File">
+											</span> <a href="#" id="file_remove" class="input-group-addon btn btn-danger fileinput-exists" data-dismiss="fileinput"><span class="text-white ">Remove</span></a>
+										</div>
+									</div>
+									@*@Html.HiddenFor(model => model.profileImage, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.profileImage", id = "fle_profileImage" } })*@
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Login ID</label>
+									@Html.EditorFor(model => model.User_Id, new { htmlAttributes = new {disabled = "disabled", data_ng_model = "employee.User_Id", @class = "form-control", id = "txt_employee_login" } })
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="personal">
+					<div class="form-body">
+						<div class="row">
+							<div class="col-md-12">
+								<input type="checkbox" ng-model="sameAddress" ng-change="sameaddress()" />Same as Present Address
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Present Address 1</label>
+									@Html.EditorFor(model => model.Present_Address1, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Present_Address1", id = "txt_Present_Address1" } })
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Permanent  Address 1</label>
+									@Html.EditorFor(model => model.Permanent_Address1, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Permanent_Address1", id = "txt_Permanent_Address1" } })
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label ">Present Address 2</label>
+									@Html.EditorFor(model => model.Present_Address2, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Present_Address2", id = "txt_Present_Address2" } })
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label ">Permanent   Address 2</label>
+									@Html.EditorFor(model => model.Permanent_Address2, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Permanent_Address2", id = "txt_Permanent_Address2" } })
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label ">Present City</label>
+									@Html.EditorFor(model => model.Present_City, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Present_City", id = "txt_Present_City" } })
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label ">Permanent City</label>
+									@Html.EditorFor(model => model.Permanent_City, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Permanent_City", id = "txt_Permanent_City" } })
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label ">Present State</label>
+									@Html.EditorFor(model => model.Present_State, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Present_State", id = "txt_Present_State" } })
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label ">Permanent State</label>
+									@Html.EditorFor(model => model.Permanent_State, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Permanent_State", id = "txt_Permanent_State" } })
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Present Pincode</label>
+									@Html.EditorFor(model => model.Present_Pincode, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Present_Pincode", id = "txt_Present_Pincode" } })
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<label class="control-label">Permanent Pincode</label>
+									@Html.EditorFor(model => model.Permanent_Pincode, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Permanent_Pincode", id = "txt_Permanent_Pincode" } })
+								</div>
+							</div>
+						</div>
+						</div>
+
+					</div>
+						<div role="tabpanel" class="tab-pane fade" id="Account">
+							<div class="form-body">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="control-label">Bank Name</label>
+											@Html.EditorFor(model => model.Bank_Name, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Bank_Name", id = "txt_bankname" } })
+
+
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="control-label">Account No</label>
+											@Html.EditorFor(model => model.Account_No, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Account_No", id = "txt_accountno" } })
+
+
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="control-label">IFSC Code</label>
+											@Html.EditorFor(model => model.IFSC_Code, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.IFSC_Code", id = "txt_ifsccode" } })
+
+
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="control-label">Branch Name</label>
+											@Html.EditorFor(model => model.Branch_Name, new { htmlAttributes = new { @class = "form-control", data_ng_model = "employee.Branch_Name", id = "txt_branchname" } })
+
+
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label class="control-label">Status</label>
+											<select ng-init="employee.Status='1'" class="form-control" ng-model="employee.Status">
+												<option value="">Select Status</option>
+												<option ng-repeat="St in Status" value="{{St.Value}}">{{St.Text}}</option>
+											</select>
+											@*@Html.DropDownListFor(model => model.Status, Status, new { @class = "form-control", data_ng_model = "employee.Status", id = "drp_status" })*@
+										</div>
+									</div>
+								</div>
+								<button type="button"  ng-model="btn_save" ng-click="EmployeeAction()" data-dismiss="model" class="btn btn-success waves-effect waves-light m-r-10 pull-right">Save</button>
+								</div>
+							</div>
+						</div>
+					</div>
+		</div>
+</div>
+<script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script>
+                // Date Picker
+                jQuery('.mydatepicker, #datepicker').datepicker();
+	jQuery('#txt_dob').datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                });
+	jQuery('#txt_doj').datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                });
+</script>
